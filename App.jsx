@@ -7,7 +7,7 @@ import Login from './src/screens/login';
  export default function App() {
   return (
     <ContainerApp>
-      <ImageBackground source={ImgEstacionamento} title='imagem de estacionamento'/>
+      <ImageBackground source={ImgEstacionamento} title='imagem de estacionamento' resizeMode='cover' style={{flex: 1}} />
       <Login/>
     </ContainerApp>
  
