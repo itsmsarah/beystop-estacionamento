@@ -10,11 +10,17 @@ justify-content: end;
 `
 export const BackgroundLogin = styled.View`
 width: 430px;
-height: 585px;
+height: 605px;
 display: flex;
 flex-direction: column;
 background-color: #D00000;
 align-items: center;
+`
+
+export const LoginForm = styled.View`
+margin: 40px 60px 90px 53px;
+display: flex;
+flex-direction: column;
 `
 
 export const TitleLogin = styled.Text`
@@ -23,7 +29,8 @@ color: #FFFFFF;
 position: relative;
 text-align: center;
 font-size: 38px;
-padding: 26px 77px 56px 78px;
+margin-bottom: 24px;
+/* padding: 26px 77px 56px 78px; */
 `
 
 export const LabelInputs = styled.Text`
@@ -32,13 +39,13 @@ font-size: 16px;
 
 `
 
-export const ContainerBtns = styled.View`
+export const ContainerLabel = styled.View`
 display: flex;
 flex-direction: column;
 gap: 26px;
 `
 
-export const ContainerLabel = styled.View`
+export const ContainerInfo = styled.View`
 display: flex;
 flex-direction: column;
 gap: 10px;
