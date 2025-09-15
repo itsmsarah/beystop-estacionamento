@@ -5,8 +5,9 @@ import styled from "styled-components/native";
 export const BtnBey = styled.TouchableOpacity`
    background-color: ${props => (props.pressed ? '#8D99AE' : '#000000')};
   border-radius: 15px;
-  padding: 10px 30px;
+  padding: 20px 10px;
   align-items: center;
+  width: 325px;
 `;
 
 export const BtnText = styled.Text`
