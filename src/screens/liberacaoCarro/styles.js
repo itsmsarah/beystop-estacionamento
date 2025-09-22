@@ -7,7 +7,12 @@ export const BackgroundLiberacao = styled.View`
   flex-direction: column;
   background-color: #D00000;
   align-items: center;
-  position: relative;
+   position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 `
 export const LiberacaoImg = styled.Image `
 width: 325px;

@@ -9,15 +9,31 @@ import RetiradaCarro from './src/screens/retirada';
 import VeiculosAtivos from './src/screens/veiculosAtivos';
 
  export default function App() {
+
+    // <ContainerApp>
+    //   <ImageBackground source={ImgEstacionamento} title='imagem de estacionamento' resizeMode='cover' style={{flex: 1}}  />
+    //   {/* <Login/> */}
+    //   {/* <Cadastro/> */}
+    //   {/* <LiberacaoCarro/> */}
+    //   <RetiradaCarro/>
+    //   {/* <VeiculosAtivos/> */}
+    // </ContainerApp>
+
   return (
     <ContainerApp>
-      <ImageBackground source={ImgEstacionamento} title='imagem de estacionamento' resizeMode='cover' style={{flex: 1, position:'absolute'}}  />
-      {/* <Login/> */}
-      {/* <Cadastro/> */}
-      {/* <LiberacaoCarro/> */}
-      {/* <RetiradaCarro/> */}
-      <VeiculosAtivos/>
+      <ImageBackground
+        source={ImgEstacionamento}
+        resizeMode="cover"
+        style={{ flex: 1 }}
+      >
+        {/* <Login/> */}
+        {/* <Cadastro/> */}
+        {/* <LiberacaoCarro/> */}
+        <RetiradaCarro/>
+        {/* <VeiculosAtivos/> */}
+      </ImageBackground>
     </ContainerApp>
- 
   );
 }
+ 
+

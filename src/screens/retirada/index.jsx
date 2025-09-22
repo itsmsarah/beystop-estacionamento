@@ -4,10 +4,12 @@ import CarroRetirado from '../../assets/img-carro-retirado.png'
 import BtnsBey from "../../components/buttons/ButtonsBey"
 import InputsBey from "../../components/inputs/InputsBey"
 import { TouchableOpacity } from "react-native"
+import ModalBey from "../../components/modal/Modal"
 
 export default function RetiradaCarro(){
     
     const [placa,setPlaca] = useState("")
+    const [modalVisible, setModalVisible] = useState(false)
     
     return(
         <BackgroundRetirada>
@@ -20,7 +22,7 @@ export default function RetiradaCarro(){
                     <RetiradaLabel>Placa</RetiradaLabel>
                       <InputsBey placeholder={"Informe a placa"} value={placa} onChangeText={setPlaca}/>
                 </RetiradaContent>
-                <BtnsBey title={"Retirar"}/>
+                <BtnsBey title={"Retirar"} onPress={() => setModalVisible (true)}/>
                 <RetiradaLink>
                     <RetiradaCaption>Não cadastrou seu carro?</RetiradaCaption>
                     <TouchableOpacity>
@@ -29,9 +31,9 @@ export default function RetiradaCarro(){
                 </RetiradaLink>
                 
 
-
             </RetiradaContainer>
 
+            <ModalBey visible={modalVisible} onClose={() => setModalVisible(false)}/>
 
         </BackgroundRetirada>
     )

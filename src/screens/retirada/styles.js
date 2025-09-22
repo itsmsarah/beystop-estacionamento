@@ -1,13 +1,16 @@
 import styled from "styled-components/native";
 
 export const BackgroundRetirada = styled.View`
- width: 430px;
+  width: 100%;
   height: 614px;
-  border-radius: 20px;
-  flex-direction: column;
+  border-radius: 20px 20px 0 0;
   background-color: #D00000;
   align-items: center;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
 
 `
 export const ImgCarroRetirado = styled.Image`

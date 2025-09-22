@@ -9,12 +9,18 @@ justify-content: end;
 
 `
 export const BackgroundLogin = styled.View`
-width: 430px;
+width: 100%;
 height: 605px;
 display: flex;
 flex-direction: column;
 background-color: #D00000;
 align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 `
 
 export const LoginForm = styled.View`
