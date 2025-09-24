@@ -33,7 +33,8 @@ export default function RetiradaCarro(){
 
             </RetiradaContainer>
 
-            <ModalBey visible={modalVisible} onClose={() => setModalVisible(false)}/>
+            <ModalBey 
+            visible={modalVisible} onClose={() => setModalVisible(false)}/>
 
         </BackgroundRetirada>
     )
