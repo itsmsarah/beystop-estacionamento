@@ -9,14 +9,14 @@ import {
   ModalMensagem,
   ModalValorContainer
 } from "./styles";
-import { BtnBey } from "../buttons/styles";
-import ModalPagts from "../modalPagamento/ModalPgt";
-import { useState } from "react";
-import BtnsModal from "../buttonsModal/BtnModal";
+
+// import { useState } from "react";
+// import BtnsModal from "../buttonsModal/BtnModal";
+
 
 
 export default function ModalBey({ visible, onClose, placa, dataEntrada, horarioEntrada, dataSaida, horarioSaida ,valorTotal}) {
-  const [showPagamentoModal, setShowPagamentoModal] = useState(false)
+  // const [showPagamentoModal, setShowPagamentoModal] = useState(false)
 
   return (
     <Modal
@@ -25,7 +25,7 @@ export default function ModalBey({ visible, onClose, placa, dataEntrada, horario
       visible={visible}
       onRequestClose={onClose}
     >
-    <ModalPagts visible={showPagamentoModal} onClose={() => setShowPagamentoModal(false)} />
+   
 
       <TouchableWithoutFeedback onPress={onClose}>
         <ModalOverlay>
@@ -45,12 +45,12 @@ export default function ModalBey({ visible, onClose, placa, dataEntrada, horario
               <ModalValorContainer>
                 <ModalValor>Valor Total: {valorTotal}</ModalValor>
               </ModalValorContainer>
-              <BtnsModal title={"Finalizar"} onPress={() =>setShowPagamentoModal(true)}/>
               {/* <BtnBey title={"Finalizar"} onPress={()=> setShowPagamentoModal(true)}/> */}
             </BackgroundModal>
           </TouchableWithoutFeedback>
         </ModalOverlay>
       </TouchableWithoutFeedback>
+      {/* <ModalPagts visible={showPagamentoModal} onClose={()=>setShowPagamentoModal(false)}/> */}
     </Modal>
    
   );
