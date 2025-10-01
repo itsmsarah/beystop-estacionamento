@@ -5,9 +5,10 @@ import BtnsBey from "../../components/buttons/ButtonsBey"
 import InputsBey from "../../components/inputs/InputsBey"
 import { TouchableOpacity } from "react-native"
 import ModalBey from "../../components/modal/Modal"
+import { useNavigation } from "@react-navigation/native"
 
 export default function RetiradaCarro(){
-    
+    const navigation = useNavigation()
     const [placa,setPlaca] = useState("")
     const [modalVisible, setModalVisible] = useState(false)
     
@@ -25,7 +26,7 @@ export default function RetiradaCarro(){
                 <BtnsBey title={"Retirar"} onPress={() => setModalVisible (true)}/>
                 <RetiradaLink>
                     <RetiradaCaption>Não cadastrou seu carro?</RetiradaCaption>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> navigation.navigate("Liberacao")}>
                         <RetiradaSpan>Clique aqui</RetiradaSpan>
                     </TouchableOpacity>
                 </RetiradaLink>

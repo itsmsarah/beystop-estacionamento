@@ -62,3 +62,19 @@ color:  #FFFFFF;
 font-size: 14px;
 font-weight: bold;
 `
+export const CadastroLink = styled.View`
+display: flex;
+justify-content: center;
+flex-direction: row;
+`
+export const CadastroCaption = styled.Text`
+color: #FFFFFF ;
+font-size:16px;
+font-weight: bold;
+`
+
+export const CadastroSpan = styled.Text`
+color: #000000 ;
+font-size:16px;
+font-weight: bold;
+`

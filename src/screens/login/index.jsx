@@ -1,21 +1,26 @@
-import { 
-  BackgroundLogin, 
-  Caption, 
-  ContainerBtns, 
-  ContainerInfo, 
-  ContainerLabel, 
-  LabelInputs, 
-  LoginContainer, 
-  LoginForm, 
-  TitleLogin 
+import {
+  BackgroundLogin,
+  CadastroCaption,
+  CadastroLink,
+  CadastroSpan,
+  Caption,
+  ContainerInfo,
+  ContainerLabel,
+  LabelInputs,
+  LoginContainer,
+  LoginForm,
+  TitleLogin
 } from "./styles";
 
 import InputsBey from "../../components/inputs/InputsBey";
 
 import { useState } from "react";
+import { TouchableOpacity } from "react-native";
 import BtnsBey from "../../components/buttons/ButtonsBey";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Login() {
+  const navigation = useNavigation()
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
@@ -44,11 +49,17 @@ export default function Login() {
               />
 
               <Caption>Esqueceu a senha?</Caption>
-              
+
             </ContainerInfo>
-            <BtnsBey title={"Login"} onPress={() => {}} />
-                {/* nao quero que aconteça nada ainda */}
+            <BtnsBey title={"Login"} onPress={() =>navigation.navigate("Liberacao")} />
+            {/* nao quero que aconteça nada ainda */}
           </ContainerLabel>
+            <CadastroLink>
+            <CadastroCaption>Não possui conta?</CadastroCaption>
+          <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}>
+            <CadastroSpan>Cadastra-se</CadastroSpan>
+          </TouchableOpacity>
+            </CadastroLink>
 
         </LoginForm>
       </BackgroundLogin>

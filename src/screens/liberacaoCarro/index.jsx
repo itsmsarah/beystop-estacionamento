@@ -3,8 +3,11 @@ import { BackgroundLiberacao, LiberacaoCaption, LiberacaoContainer, LiberacaoCon
 import MiniVeiculos from '../../assets/img-mini-veículos.png'
 import InputsBey from "../../components/inputs/InputsBey"
 import BtnsBey from "../../components/buttons/ButtonsBey"
+import { useNavigation } from "@react-navigation/native"
+import { TouchableOpacity } from "react-native"
 
 export default function LiberacaoCarro(){
+    const navigation = useNavigation()
 
     const [placa,setPlaca] = useState("")
     return(
@@ -19,9 +22,11 @@ export default function LiberacaoCarro(){
                 <BtnsBey title={"Cadastrar"}/>
                 <LiberacaoLink>
                 <LiberacaoCaption>Quer retirar seu carro?</LiberacaoCaption>
-                <LiberacaoSpan>
+                <TouchableOpacity onPress={() => navigation.navigate("Retirada")}>
                     <TextSpan>Clique aqui</TextSpan>
-                </LiberacaoSpan>
+
+                </TouchableOpacity>
+               
                 </LiberacaoLink>
 
 

@@ -3,13 +3,21 @@ import ImgRedCar from '../../assets/img-red-car-stop.png'
 import InputsBey from "../../components/inputs/InputsBey";
 import { useState } from "react";
 import BtnsBey from "../../components/buttons/ButtonsBey";
+import { useNavigation } from "@react-navigation/native";
+import { ImageBackground } from "react-native";
+import ImgEstacionamento from '../../assets/img-estacionamento.png'
 
 export default function Cadastro(){
+    const navigation = useNavigation()
     const [nameComplete,setNameComplete] = useState("")
     const [email,setEmail]= useState("")
     const [senha,setSenha] = useState("")
     return(
 
+        <ImageBackground   source={ImgEstacionamento}
+                resizeMode="cover"
+                style={{ flex: 1}}
+                >
             <BackgroundCadastro>
                 <CadastroImg source={ImgRedCar} title='Img carro vermelho' alt='img carro vermelho'/>
                 <CadastroContainer>
@@ -42,13 +50,15 @@ export default function Cadastro(){
 
                 </CadastroForm>
 
-                <BtnsBey title={"Cadastrar"} onPress={() => {}} />
+                <BtnsBey title={"Cadastrar"} onPress={() => navigation.navigate("Login")} />
                 {/* nao quero que aconteça nada ainda */}
             
              
                 
                 </CadastroContainer>
             </BackgroundCadastro>
+
+        </ImageBackground>
    
     )
 }
