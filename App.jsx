@@ -7,9 +7,11 @@ import Cadastro from './src/screens/cadastro';
 import LiberacaoCarro from './src/screens/liberacaoCarro';
 import RetiradaCarro from './src/screens/retirada';
 import VeiculosAtivos from './src/screens/veiculosAtivos';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import * as NavigationBar from 'expo-navigation-bar'
+import { useEffect } from 'react';
+
 
 const RootStack = createNativeStackNavigator({
   initialRouteName: "Home",
@@ -29,7 +31,11 @@ const RootStack = createNativeStackNavigator({
 const Navigation = createStaticNavigation(RootStack)
 
  export default function App() {
-
+  useEffect(()=>{
+   NavigationBar.setBackgroundColorAsync('transparent');
+   NavigationBar.setVisibilityAsync('hidden');
+   NavigationBar.setBehaviorAsync('overlay-swipe');
+  },[])
     // <ContainerApp>
     //   <ImageBackground source={ImgEstacionamento} title='imagem de estacionamento' resizeMode='cover' style={{flex: 1}}  />
     //   {/* <Login/> */}
