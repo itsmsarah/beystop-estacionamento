@@ -4,13 +4,20 @@ import MiniVeiculos from '../../assets/img-mini-veículos.png'
 import InputsBey from "../../components/inputs/InputsBey"
 import BtnsBey from "../../components/buttons/ButtonsBey"
 import { useNavigation } from "@react-navigation/native"
-import { TouchableOpacity } from "react-native"
+import { TouchableOpacity ,ImageBackground} from "react-native"
+import ImgEstacionamento from '../../assets/img-estacionamento.png'
+
 
 export default function LiberacaoCarro(){
     const navigation = useNavigation()
 
     const [placa,setPlaca] = useState("")
     return(
+
+         <ImageBackground   source={ImgEstacionamento}
+                        resizeMode="cover"
+                        style={{ flex: 1}}
+                        >
         <BackgroundLiberacao>
             <LiberacaoImg source={MiniVeiculos} alt="imagem como vários mini véiculos" />
             <LiberacaoContainer>
@@ -33,6 +40,7 @@ export default function LiberacaoCarro(){
             </LiberacaoContainer>
 
         </BackgroundLiberacao>
+        </ImageBackground>
 
     )
 }

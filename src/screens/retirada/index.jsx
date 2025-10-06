@@ -3,9 +3,10 @@ import { BackgroundRetirada, ImgCarroRetirado, RetiradaCaption, RetiradaContaine
 import CarroRetirado from '../../assets/img-carro-retirado.png'
 import BtnsBey from "../../components/buttons/ButtonsBey"
 import InputsBey from "../../components/inputs/InputsBey"
-import { TouchableOpacity } from "react-native"
+import { TouchableOpacity,ImageBackground } from "react-native"
 import ModalBey from "../../components/modal/Modal"
 import { useNavigation } from "@react-navigation/native"
+import ImgEstacionamento from '../../assets/img-estacionamento.png'
 
 export default function RetiradaCarro(){
     const navigation = useNavigation()
@@ -13,6 +14,10 @@ export default function RetiradaCarro(){
     const [modalVisible, setModalVisible] = useState(false)
     
     return(
+         <ImageBackground   source={ImgEstacionamento}
+                        resizeMode="cover"
+                        style={{ flex: 1}}
+                        >
         <BackgroundRetirada>
             <ImgCarroRetirado source={CarroRetirado} alt="img de um carro vermelho sendo retirado"/>
 
@@ -38,5 +43,6 @@ export default function RetiradaCarro(){
             visible={modalVisible} onClose={() => setModalVisible(false)}/>
 
         </BackgroundRetirada>
+        </ImageBackground>
     )
 }

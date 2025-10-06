@@ -4,6 +4,7 @@ import ImgEstacionamento from "../../assets/img-estacionamento.png"
 import AmostraVeiculos from "../../components/box-veiculosAtivos";
 import { useNavigation } from "@react-navigation/native";
 
+
 export default function VeiculosAtivos() {
   const navigation = useNavigation()
   return (

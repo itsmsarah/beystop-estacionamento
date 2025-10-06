@@ -15,9 +15,10 @@ import {
 import InputsBey from "../../components/inputs/InputsBey";
 
 import { useState } from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity,ImageBackground } from "react-native";
 import BtnsBey from "../../components/buttons/ButtonsBey";
 import { useNavigation } from "@react-navigation/native";
+import ImgEstacionamento from '../../assets/img-estacionamento.png'
 
 export default function Login() {
   const navigation = useNavigation()
@@ -25,6 +26,10 @@ export default function Login() {
   const [senha, setSenha] = useState("");
 
   return (
+     <ImageBackground   source={ImgEstacionamento}
+                    resizeMode="cover"
+                    style={{ flex: 1}}
+                    >
     <LoginContainer>
       <BackgroundLogin>
         <LoginForm>
@@ -64,5 +69,6 @@ export default function Login() {
         </LoginForm>
       </BackgroundLogin>
     </LoginContainer>
-  );
+    </ImageBackground>
+  )
 }

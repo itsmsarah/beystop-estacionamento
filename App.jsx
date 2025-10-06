@@ -11,12 +11,13 @@ import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as NavigationBar from 'expo-navigation-bar'
 import { useEffect } from 'react';
+import HomeBey from './src/screens/home';
 
 
 const RootStack = createNativeStackNavigator({
   initialRouteName: "Home",
   screens:{
-    Home: VeiculosAtivos,
+    Home: HomeBey,
     Login: Login,
     Cadastro: Cadastro,
     Liberacao: LiberacaoCarro,
