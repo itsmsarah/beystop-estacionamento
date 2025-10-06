@@ -18,7 +18,7 @@ export default function HomeBey(){
               <BtnsBey title={"Retirada"} onPress={() => navigation.navigate("Retirada")} />
             </ContainerPages>
         <HomeLink>
-            <HomeCaption>Verificar veículos ativos</HomeCaption>
+            <HomeCaption>Verificar veículos ativos?</HomeCaption>
             <TouchableOpacity onPress={() => navigation.navigate("Veiculos")}>
                         <HomeSpan>Clique aqui!</HomeSpan>
                       </TouchableOpacity>
