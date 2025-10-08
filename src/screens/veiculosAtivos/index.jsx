@@ -3,10 +3,14 @@ import { ImageBackground, TouchableOpacity,ScrollView } from "react-native";
 import ImgEstacionamento from "../../assets/img-estacionamento.png"
 import AmostraVeiculos from "../../components/box-veiculosAtivos";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 
 export default function VeiculosAtivos() {
   const navigation = useNavigation()
+
+
+
   return (
     <ImageBackground
       source={ImgEstacionamento}
