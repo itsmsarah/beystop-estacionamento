@@ -16,6 +16,9 @@ import HomeBey from './src/screens/home';
 
 const RootStack = createNativeStackNavigator({
   initialRouteName: "Home",
+  screenOptions:{
+    headerShown: false
+  },
   screens:{
     Home: HomeBey,
     Login: Login,
@@ -33,9 +36,9 @@ const Navigation = createStaticNavigation(RootStack)
 
  export default function App() {
   useEffect(()=>{
-   NavigationBar.setBackgroundColorAsync('transparent');
-   NavigationBar.setVisibilityAsync('hidden');
-   NavigationBar.setBehaviorAsync('overlay-swipe');
+  //  NavigationBar.setBackgroundColorAsync('transparent');
+  //  NavigationBar.setVisibilityAsync('hidden');
+  //  NavigationBar.setBehaviorAsync('overlay-swipe');
   },[])
     // <ContainerApp>
     //   <ImageBackground source={ImgEstacionamento} title='imagem de estacionamento' resizeMode='cover' style={{flex: 1}}  />

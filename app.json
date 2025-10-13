@@ -14,8 +14,14 @@
       "supportsTablet": true
     },
     "android": {
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.itsmsarah.beystop"
     },
-    "web": {}
+    "web": {},
+    "extra": {
+      "eas": {
+        "projectId": "c9342e36-7f5f-4bd2-a0d9-b4036cd1550b"
+      }
+    }
   }
 }

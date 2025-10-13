@@ -17,15 +17,13 @@ export default function VeiculosAtivos() {
       resizeMode="cover"
       style={{ flex: 1 }}
     >
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+    
         <ContainerVeiculos>
 
           <TitleVeiculos>Veículos Ativos</TitleVeiculos>
 
           <AmostraVeiculos />
-          <AmostraVeiculos />
-          <AmostraVeiculos />
-          <AmostraVeiculos />
+        
 
           <LoginLink>
             <LoginCaption>Quer acessar sua conta? </LoginCaption>
@@ -35,7 +33,7 @@ export default function VeiculosAtivos() {
           </LoginLink>
 
         </ContainerVeiculos>
-      </ScrollView>
+      
     </ImageBackground>
   )
 }

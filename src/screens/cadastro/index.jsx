@@ -9,10 +9,22 @@ import ImgEstacionamento from '../../assets/img-estacionamento.png'
 
 export default function Cadastro(){
     const navigation = useNavigation()
+     const [data, setData] = useState([]);
     const [nameComplete,setNameComplete] = useState("")
     const [email,setEmail]= useState("")
     const [senha,setSenha] = useState("")
+
+     const cadastrarUsuario = async () => {
+    try {
+      const res = await api.post(`/auth/register`);
+       console.log("Resposta da API:", res.data);
+      setData(res.data);
+    } catch (err) {
+      console.log("Erro ao cadastrar usuário", err);
+    }
+  }
     return(
+        
 
         <ImageBackground   source={ImgEstacionamento}
                 resizeMode="cover"
@@ -29,6 +41,7 @@ export default function Cadastro(){
                 placeholder={"Informe seu nome completo"}
                 value={nameComplete}
                 onChangeText={setNameComplete}
+                keyboardType="text"
                 />
                     </InputContainer>
 
@@ -38,6 +51,7 @@ export default function Cadastro(){
                 placeholder={"Informe seu e-mail"}
                 value={email}
                 onChangeText={setEmail}
+                keyboardType="text"
                 />
                     </InputContainer>
                 <LabelCadastro>Senha:</LabelCadastro>
@@ -45,13 +59,14 @@ export default function Cadastro(){
                 placeholder={"Informe sua senha"}
                 value={senha}
                 onChangeText={setSenha}
+                keyboardType="text"
                 secureTextEntry
                 />
 
                 </CadastroForm>
 
-                <BtnsBey title={"Cadastrar"} onPress={() => navigation.navigate("Login")} />
-                {/* nao quero que aconteça nada ainda */}
+                <BtnsBey title={"Cadastrar"} onPress={(cadastrarUsuario)} />
+          
             
              
                 

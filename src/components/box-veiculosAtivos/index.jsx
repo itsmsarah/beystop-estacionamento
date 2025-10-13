@@ -1,36 +1,72 @@
-import { ContainerDataEntrada, ContainerInputVeiculos, ContentDataEntrada, ContentVeiculos, LabelVeiculos, SubtitleVeiculos, VeiculosComponent } from "./styles";
+import React, { useEffect, useState, useCallback } from "react";
+import { FlatList, RefreshControl } from "react-native";
 import api from "../../../api";
+import {
+  ContainerDataEntrada,
+  ContainerInputVeiculos,
+  ContentDataEntrada,
+  ContentVeiculos,
+  LabelVeiculos,
+  SubtitleVeiculos,
+  VeiculosComponent,
+} from "./styles";
 
 export default function AmostraVeiculos() {
-      const{placa,setPlaca} = useState('')
-      const{dataEntrada,setDataEntrada} = useState('')
-      const{horarioEntrada,setHorarioEntrada}= useState('')
-      ****/-9
+  const [data, setData] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
 
-      function veiculosAtivos(){
-        api.get(`/api/veiculos`)
-      }
+  const veiculosAtivos = async () => {
+    try {
+      const res = await api.get(`/api/veiculos`);
+       console.log("Resposta da API:", res.data);
+      setData(res.data);
+    } catch (err) {
+      console.log("Erro ao buscar veículos:", err);
+    }
+  }
+
+  useEffect(() => {
+    veiculosAtivos();
+  }, []);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    veiculosAtivos().then(() => setRefreshing(false));
+  }, []);
+
+  const renderItem = ({ item, index }) => {
+
+
     return (
-        <VeiculosComponent>
-            <SubtitleVeiculos>{placa}</SubtitleVeiculos>
-            <ContainerInputVeiculos>
+      <VeiculosComponent key={index}>
+        <SubtitleVeiculos>{item.placa}</SubtitleVeiculos>
 
-                <ContentVeiculos>
-                    <LabelVeiculos>Data/Entrada</LabelVeiculos>
-                    <ContainerDataEntrada>
-                        <ContentDataEntrada>{dataEntrada}</ContentDataEntrada>
-                    </ContainerDataEntrada>
-                </ContentVeiculos>
+        <ContainerInputVeiculos>
+          <ContentVeiculos>
+            <LabelVeiculos>Data/Entrada</LabelVeiculos>
+            <ContainerDataEntrada>
+              <ContentDataEntrada>{item.dataEntrada}</ContentDataEntrada>
+            </ContainerDataEntrada>
+          </ContentVeiculos>
 
-
-                <ContentVeiculos>
-                    <LabelVeiculos>Horário/Entrada</LabelVeiculos>
-                    <ContainerDataEntrada>
-                        <ContentDataEntrada>{horarioEntrada}</ContentDataEntrada>
-                    </ContainerDataEntrada>
-                </ContentVeiculos>
-            </ContainerInputVeiculos>
-
-        </VeiculosComponent>
-    )
+          <ContentVeiculos>
+            <LabelVeiculos>Horário/Entrada</LabelVeiculos>
+            <ContainerDataEntrada>
+              <ContentDataEntrada>{item.horarioEntrada}</ContentDataEntrada>
+            </ContainerDataEntrada>
+          </ContentVeiculos>
+        </ContainerInputVeiculos>
+      </VeiculosComponent>
+    );
+  };
+ return (
+    <FlatList
+      data={data}
+      keyExtractor={(_, index) => index.toString()}
+      renderItem={renderItem}
+      refreshing={refreshing}
+      onRefresh={onRefresh}
+    
+    />
+  );
 }
