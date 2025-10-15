@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+      "scheme": "beystop",
     "splash": {
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"

@@ -6,23 +6,34 @@ import BtnsBey from "../../components/buttons/ButtonsBey";
 import { useNavigation } from "@react-navigation/native";
 import { ImageBackground } from "react-native";
 import ImgEstacionamento from '../../assets/img-estacionamento.png'
+import api from '../../../api'
+
 
 export default function Cadastro(){
     const navigation = useNavigation()
-     const [data, setData] = useState([]);
-    const [nameComplete,setNameComplete] = useState("")
+    const [nome,setNome] = useState("")
     const [email,setEmail]= useState("")
     const [senha,setSenha] = useState("")
 
-     const cadastrarUsuario = async () => {
-    try {
-      const res = await api.post(`/auth/register`);
-       console.log("Resposta da API:", res.data);
-      setData(res.data);
-    } catch (err) {
-      console.log("Erro ao cadastrar usuário", err);
-    }
+const cadastrarUsuario = async () => {
+  try {
+    const res = await api.post("/auth/register", {
+      nome,    
+      email,
+      senha
+    });
+
+    alert('Usuário cadastrado com sucesso!');
+    navigation.navigate('Login');
+
+  } catch (err) {
+    console.log('Erro ao cadastrar usuário', err);
+    alert('Erro ao cadastrar. Verifique os dados e tente novamente.');
   }
+}
+
+
+
     return(
         
 
@@ -39,8 +50,8 @@ export default function Cadastro(){
                 <LabelCadastro>Nome Completo:</LabelCadastro>
                 <InputsBey
                 placeholder={"Informe seu nome completo"}
-                value={nameComplete}
-                onChangeText={setNameComplete}
+                value={nome}
+                onChangeText={setNome}
                 keyboardType="text"
                 />
                     </InputContainer>
@@ -65,9 +76,9 @@ export default function Cadastro(){
 
                 </CadastroForm>
 
-                <BtnsBey title={"Cadastrar"} onPress={(cadastrarUsuario)} />
-          
-            
+                {/* <BtnsBey title={"Cadastrar"} onPress={(cadastrarUsuario)} /> */}
+                 <BtnsBey title={"Cadastrar"} onPress={cadastrarUsuario} />
+               
              
                 
                 </CadastroContainer>

@@ -19,11 +19,32 @@ import { TouchableOpacity,ImageBackground } from "react-native";
 import BtnsBey from "../../components/buttons/ButtonsBey";
 import { useNavigation } from "@react-navigation/native";
 import ImgEstacionamento from '../../assets/img-estacionamento.png'
+import api from '../../../api'
 
 export default function Login() {
   const navigation = useNavigation()
+
+  const[data,setData] = useState([])
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+
+  const fazerLogin = async () => {
+  try {
+    const res = await api.post("/auth/login", {
+      email: email,
+      senha: senha
+    });
+
+    console.log("Resposta da API:", res.data);
+    setData(res.data); 
+
+    navigation.navigate("Liberacao");
+
+  } catch (err) {
+    console.log("Erro ao  fazer login", err);
+    alert("Erro ao fazer login. Verifique os dados e tente novamente.");
+  }
+};
 
   return (
      <ImageBackground   source={ImgEstacionamento}
@@ -56,7 +77,7 @@ export default function Login() {
               <Caption>Esqueceu a senha?</Caption>
 
             </ContainerInfo>
-            <BtnsBey title={"Login"} onPress={() =>navigation.navigate("Liberacao")} />
+            <BtnsBey title={"Login"} onPress={fazerLogin} />
             {/* nao quero que aconteça nada ainda */}
           </ContainerLabel>
             <CadastroLink>
