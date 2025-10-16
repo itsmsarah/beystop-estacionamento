@@ -1,9 +1,5 @@
 import styled from "styled-components/native";
 
-
-
-
-
 export const BackgroundCadastro = styled.View`
   width: 100%;
   height: 700px;

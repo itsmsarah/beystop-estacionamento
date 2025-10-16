@@ -7,11 +7,25 @@ import { TouchableOpacity,ImageBackground } from "react-native"
 import ModalBey from "../../components/modal/Modal"
 import { useNavigation } from "@react-navigation/native"
 import ImgEstacionamento from '../../assets/img-estacionamento.png'
+import api from "../../../api"
 
-export default function RetiradaCarro(){
-    const navigation = useNavigation()
-    const [placa,setPlaca] = useState("")
-    const [modalVisible, setModalVisible] = useState(false)
+
+  export default function RetiradaCarro() {
+  const navigation = useNavigation();
+  const [placa, setPlaca] = useState("");
+  const [modalVisible, setModalVisible] = useState(false)
+
+  const retirarCarro = async () => {
+    try {
+      const res = await api.put(`/api/veiculos/saida`, { placa });
+      console.log("Resposta da API:", res.data);
+
+      navigation.navigate("Veiculos");
+    } catch (err) {
+      console.log("Erro ao retirar veículo:", err);
+      alert("Erro ao retirar veículo. Verifique os dados e tente novamente.");
+    }
+  };
     
     return(
          <ImageBackground   source={ImgEstacionamento}
@@ -28,7 +42,7 @@ export default function RetiradaCarro(){
                     <RetiradaLabel>Placa</RetiradaLabel>
                       <InputsBey placeholder={"Informe a placa"} value={placa} onChangeText={setPlaca}/>
                 </RetiradaContent>
-                <BtnsBey title={"Retirar"} onPress={() => setModalVisible (true)}/>
+               <BtnsBey title={"Retirar"} onPress={retirarCarro} />
                 <RetiradaLink>
                     <RetiradaCaption>Não cadastrou seu carro?</RetiradaCaption>
                     <TouchableOpacity onPress={()=> navigation.navigate("Liberacao")}>
